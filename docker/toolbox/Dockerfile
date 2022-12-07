@@ -1,3 +1,3 @@
 FROM alpine
-RUN apk add --no-cache curl wget bash
+RUN apk add --no-cache curl bash
 CMD tail -f /dev/null

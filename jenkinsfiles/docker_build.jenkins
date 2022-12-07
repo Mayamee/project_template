@@ -6,12 +6,13 @@ pipeline {
     agent { 
         label 'master'
         }
+    trigger { pollSCM('* * * * *') }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
     stages {
-        stage("create docker image") {
+        stage('create docker image') {
             steps {
                 echo " ============== build image =================="
                 dir ('docker/toolbox') {
